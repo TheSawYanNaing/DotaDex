@@ -42,7 +42,8 @@ body
     border-bottom: 2px solid var(--stroke);
     position: sticky;
     top: 0;
-
+    background-color: var(--back);
+    z-index: 3;
 }
 
 .header .navigation 
@@ -91,3 +92,138 @@ body
     font-size: 30px;
     cursor: pointer;
 }
+
+.hero-card 
+{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.hero-card:hover 
+{
+    border: 1px solid var(--stroke);
+}
+
+.hero-card img:first-child
+{
+    width: 100%;
+    height: 120px;
+    object-fit: cover;  
+    object-position: center;
+    border-radius: 5px;
+}
+
+.hero-card .attr-icon
+{
+    position: absolute;
+    right: 0px;
+    top: 90px;
+    width: 30px;
+}
+
+.hero-card h2 
+{
+    font-size: 18px;
+    color: var(--text);
+    font-weight: bold;
+    margin: 0px 10px;
+}
+
+.hero-card p 
+{
+    font-size: 14px;
+    color: var(--formText);
+    margin: 5px 10px;
+}
+
+.hero-list 
+{
+    display: grid;
+    grid-template-columns: 200px;
+    justify-content: center;
+    margin: 20px auto;
+    row-gap: 20px;
+    column-gap: 20px;
+    width: 90%;
+}
+
+.buttons 
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.buttons button 
+{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--form);
+    color: var(--formText);
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.buttons button.active 
+{
+    background-color: var(--text);
+    color: var(--back);
+}
+
+
+input.search 
+{
+    display: block;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid var(--stroke);
+    border-radius: 5px;
+    background-color: var(--form);
+    color: var(--formText);
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s linear;
+    margin: 20px auto;
+}
+
+/* Media query */
+@media screen and (min-width : 450px) {
+    .hero-list 
+    {
+        grid-template-columns: 200px 200px;
+        justify-content: center;
+        column-gap: 30px;
+    }
+}
+
+@media screen and (min-width : 680px) {
+    .hero-list {
+        grid-template-columns: 200px 200px 200px;
+        justify-content: space-between;
+        column-gap: 10px;
+    }
+}
+
+@media screen and (min-width : 900px) {
+    .hero-list {
+        grid-template-columns: 200px 200px 200px 200px;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width : 1150px) {
+    .hero-list {
+        grid-template-columns: 200px 200px 200px 200px 200px;
+        justify-content: space-between;
+    }
+}
+

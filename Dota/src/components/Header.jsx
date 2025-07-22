@@ -19,8 +19,8 @@ export default function Header()
                 </div>
                 <nav>
                     <ul>
-                        <li><Link to="heroes">Heroes</Link></li>
-                        <li><Link to="items">Items</Link></li>
+                        <li><Link to="/">Heroes</Link></li>
+                        <li><Link to="/items">Items</Link></li>
                     </ul>
                 </nav>
             </div>
