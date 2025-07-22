@@ -48,6 +48,7 @@ export default function ItemList()
 
     return(
         <div className="items">
+            <h2>Items</h2>
             <input 
                 className="search"
                 type = "search"
