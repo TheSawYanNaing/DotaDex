@@ -116,7 +116,8 @@ export default function HeroList()
 
     return(
         <div className="heroes">
-            
+            <h2>Heroes</h2>
+            <p>Explore the diverse roster of heroes in Dota 2, each with unique abilities and playstyles. Discover your favorites and learn about new ones.</p>
             <input 
                 className="search"
                 placeholder="Search heroes"
