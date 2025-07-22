@@ -1,68 +1,93 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Be Vietnam Pro", sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.light
+{
+    --back : #EDE8EB;
+    --text : #000;
+    --stroke  : #1a1714;
+    --form : #D4C9D1;
+    --formText : #5C4A57;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+:root
+{
+    --back : #121714;        /* Opposite of #EDE8EB */
+    --text : #ffffff;        /* Opposite of #000000 */
+    --stroke : #E5E8EB;      /* Opposite of #1A1714 */
+    --form : #2B362E;        /* Opposite of #D4C9D1 */
+    --formText : #A3B5A8;    /* Opposite of #5C4A57 */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+body 
+{
+    background-color: var(--back);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.header 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--stroke);
+    position: sticky;
+    top: 0;
+
+}
+
+.header .navigation 
+{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.header .banner 
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 10px;
+}
+
+.header .banner h1 
+{
+    font-size: 24px;
+    color: var(--text);
+}
+
+.header .navigation ul 
+{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: var(--text);
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.header .navigation ul li a 
+{
+    text-decoration: none;
+    color: var(--text);
+}
+
+.header .theme 
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin:5px 10px;
+    font-size: 30px;
+    cursor: pointer;
 }
