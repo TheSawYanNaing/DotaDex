@@ -4,8 +4,12 @@ import intelligence from "./../assets/intel.webp"
 import strength from "./../assets/strengthh.webp"
 import universal from "./../assets/universal.webp"
 
-export default function HeroCard({id,name, localized_name, primary_attr, attack_type, roles})
+import { useNavigate } from "react-router-dom"
+
+export default function HeroCard({id, localized_name, primary_attr, attack_type, roles})
 {   
+    const navigate = useNavigate();
+
     let imgUrl;
     if (primary_attr === "agi")
     {
@@ -28,7 +32,7 @@ export default function HeroCard({id,name, localized_name, primary_attr, attack_
     }
 
     return(
-        <div className="hero-card">
+        <div className="hero-card" onClick={() => navigate(`/heroes/${id}`)}>
             <img src={`https://cdn.steamstatic.com${heroes[id].img}`} alt={localized_name} />
             <div className="hero-info">
                 <h2>{localized_name}</h2>
