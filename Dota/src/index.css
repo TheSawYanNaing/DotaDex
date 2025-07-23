@@ -210,6 +210,168 @@ input.search
     margin: 20px auto;
 }
 
+.hero-lore-stats 
+{
+    width: 90%;
+    margin: 20px auto;;
+}
+
+.hero-name-type 
+{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--text);
+}
+
+.hero-lore-stats > p 
+{
+    margin: 20px 0px;
+    color: var(--formText);
+    line-height: 1.5;
+}
+
+.hero-stats 
+{
+    display: flex;;
+    flex-flow: column;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+.hero-info 
+{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-info > div 
+{
+    display: flex;;
+    gap: 40px;
+
+}
+
+.hp-mp 
+{
+    display: flex;
+    flex-flow: column;
+}
+
+.hp-mp p
+{
+    text-align: center;
+}
+
+.hp-mp p span.regen 
+{
+    font-size: small;
+    color: var(--formText);
+}
+
+.hp-mp img 
+{
+    margin-bottom: 0px;
+    background-color: red;
+}
+.hp-mp .health 
+{
+    background-color: green;
+    margin: 0px;
+}
+
+.hp-mp .mana 
+{
+    background-color: blue;
+    margin: 0px;
+}
+
+.attributes 
+{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;;
+    gap: 20px;
+}
+
+.attributes > div 
+{
+    display: flex;
+    gap: 5px;
+}
+
+.attributes > div img 
+{
+    width: 30px;;
+}
+
+.attributes p 
+{
+    color: var(--text);
+    margin-left: 10px;
+}
+
+.attributes .gain 
+{
+    color: var(--formText);
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.stats-info 
+{
+    margin: 20px 0px;
+}
+
+.stats-info h3
+{
+    text-align: center;
+    margin: 20px 0px;;
+}
+
+.stats-info > div 
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+}
+
+.stats
+{
+    display: flex;
+    gap: 20px;
+}
+
+.stats p 
+{
+    text-align: right;
+}
+
+.stats-info > div > div > h4 
+{
+    margin: 15px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Media query */
 @media screen and (min-width : 450px) {
     .hero-list 
@@ -226,6 +388,7 @@ input.search
         justify-content: space-between;
         column-gap: 10px;
     }
+
 }
 
 @media screen and (min-width : 900px) {
@@ -233,12 +396,39 @@ input.search
         grid-template-columns: 200px 200px 200px 200px;
         justify-content: space-between;
     }
+
 }
 
 @media screen and (min-width : 1150px) {
     .hero-list {
         grid-template-columns: 200px 200px 200px 200px 200px;
         justify-content: space-between;
+    }
+
+    .hero-stats 
+    {
+        flex-flow: row;
+        justify-content: center;
+        gap: 100px;
+        align-items: flex-start;
+    }
+
+    .hero-info
+    {
+        margin: 0px;
+    }
+
+    .stats-info
+    {
+        
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .stats-info h3 
+    {
+   
+        margin: 0px;
     }
 }
 

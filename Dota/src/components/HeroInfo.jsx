@@ -1,4 +1,16 @@
+import HeroLoreStats from "./HeroLoreStats"
+import { useParams } from "react-router-dom"
+
 export default function HeroInfo()
 {
-    return <h1>Hello</h1>
+    const { id } = useParams()
+
+    return(
+        <>
+            <HeroLoreStats
+                id={id} 
+            />
+        </>
+    )
+
 }
