@@ -6,7 +6,7 @@ import universal from "./../assets/universal.webp"
 
 import { useNavigate } from "react-router-dom"
 
-export default function HeroCard({id, localized_name, primary_attr, attack_type, roles})
+export default function HeroCard({id,name, localized_name, primary_attr, attack_type, roles})
 {   
     const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ export default function HeroCard({id, localized_name, primary_attr, attack_type,
     }
 
     return(
-        <div className="hero-card" onClick={() => navigate(`/hero/${id}`)}>
+        <div className="hero-card" onClick={() => navigate(`/hero/${id}`, {state: {name}})}>
             <img src={`https://cdn.steamstatic.com${heroes[id].img}`} alt={localized_name} />
             <div className="hero-info">
                 <h2>{localized_name}</h2>
