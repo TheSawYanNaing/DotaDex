@@ -2,7 +2,6 @@ import innate from "./../assets/inate.png"
 
 export default function Ability({ability})
 {   
-   console.log(ability)
 
    if (!ability || ability.behavior === "Hidden")
    {

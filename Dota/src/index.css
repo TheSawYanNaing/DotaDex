@@ -131,14 +131,16 @@ body
     font-size: 18px;
     color: var(--text);
     font-weight: bold;
-    margin: 0px 10px;
+    padding: 0px 10px;
+    width: 100%;
 }
 
 .hero-card p 
 {
     font-size: 14px;
     color: var(--formText);
-    margin: 5px 10px;
+    padding: 5px 10px;
+    width: 100%;
 }
 
 .hero-list 
@@ -437,7 +439,7 @@ p.lore
     font-size: 12px;
 }
 
-h2 
+.hero-lore-stats~h2 
 {
     text-align: center;
 }
