@@ -29,8 +29,8 @@ export default function Ability({ability})
                         )
                     })
                 }
-                <p>Mana Cost: <span>{Array.isArray(ability.mc)? ability.mc.join("\\ ") : ability.mc}</span></p>
-                <p>CoolDown: <span>{Array.isArray(ability.cd)? ability.cd.join("\\ ") : ability.cd}</span></p>
+                {ability.mc && <p>Mana Cost: <span>{Array.isArray(ability.mc)? ability.mc.join("\\ ") : ability.mc}</span></p>}
+                {ability.cd && <p>CoolDown: <span>{Array.isArray(ability.cd)? ability.cd.join("\\ ") : ability.cd}</span></p>}
                 {ability.lore && <p className="lore">{ability.lore}</p>}
             </div>
         </div>
