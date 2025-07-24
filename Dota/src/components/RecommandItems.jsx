@@ -71,7 +71,7 @@ export default function RecommandItems() {
     const lateItemsComponents = lateItems.map(getItem)
 
     return(
-        <div>
+        <div className="recommand-items">
             <div className="start">
                 <h3>Start Items</h3>
                 <div className="start-container">

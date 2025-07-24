@@ -1,11 +1,11 @@
 import HeroInfo from "./HeroInfo"
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import { NavLink, Outlet } from "react-router-dom"
 
 export default function HeroLayout()
 {
     const { id } = useParams()
-    
+    const { pathname } = useLocation()
 
     return(
         <>
@@ -15,7 +15,14 @@ export default function HeroLayout()
             <nav className="hero-navigation">
                 <ul>
                     <li>
-                        <NavLink to={`/hero/${id}/items`}>Items</NavLink>
+                        <NavLink className={() => 
+                            {
+                                if (pathname == `/hero/${id}` || pathname ==`/hero/${id}/items`)
+                                {
+                                    return "active"
+                                }
+                            }
+                        } end to={`/hero/${id}/items`}>Items</NavLink>
                     </li>
                     <li>
                         <NavLink to={`/hero/${id}/matches`}>Matches</NavLink>

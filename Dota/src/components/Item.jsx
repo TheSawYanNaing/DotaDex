@@ -9,7 +9,7 @@ export default function Item({name})
 
     const item = items[name]
 
-    console.log(item)
+    console.log(item.components)
 
     return(
         <div className="item">
@@ -17,7 +17,9 @@ export default function Item({name})
             <div className="item-info">
                 <h3>{item.dname}</h3>
                 <p className="cost">
-                    <PiCoinsLight />
+                    <PiCoinsLight
+                        color="yellow"
+                    />
                     <span>{item.cost}</span>
                 </p>
                 {
@@ -25,8 +27,8 @@ export default function Item({name})
                     item.abilities.map(function(ability)
                     {
                         return(
-                            <section key={ability.title}>
-                                <h5>{ability.type}</h5>
+                            <section key={nanoid()}>
+                                <h4>{ability.type}</h4>
                                 <p>
                                         <span className="effect-name">{ability.title}: </span>
                                         {ability.description}
@@ -63,9 +65,13 @@ export default function Item({name})
                     item.components && 
                     item.components.map(function(component)
                     {
-                        return(
-                            <img key={nanoid()} src={`https://cdn.steamstatic.com${items[component].img}`} alt={component} />
-                        )
+                        if (component)
+                        {
+                            return(
+                                <img key={nanoid()} src={`https://cdn.steamstatic.com${items[component].img}`} alt={component} />
+                            )
+                        }
+                        
                     })
                 }
                 <p className="lore">{item.lore}</p>

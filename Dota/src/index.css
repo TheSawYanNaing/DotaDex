@@ -398,10 +398,23 @@ input.search
     border-radius: 10px;
     box-shadow: 0px 0px 5px 0px var(--stroke);
     position: absolute;
-    top: 110px;
-    left: -130px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     display: none;
-    z-index: 2;
+    z-index: 4;
+    font-size: smaller;
+}
+
+.recommand-items 
+{
+    margin: 20px 0px;
+}
+
+.recommand-items > div > h3 
+{
+    text-align: center;
+    margin: 20px 0px;
 }
 
 .ability-info h3 
@@ -464,11 +477,89 @@ p.lore
     border-bottom: 1px solid var(--stroke);
 }
 
+.recommand-items 
+{
+    display: flex;
+    flex-flow: column;
+}
+
+.item img 
+{
+    width: 40px;
+}
+
+.item 
+{
+    position: relative;
+    width: 40px;
+}
+
+.item .item-info 
+{
+    position: absolute;
+    background-color: var(--form);
+    padding: 10px;
+    font-size: small;
+    display: none;
+    z-index: 2;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 1px var(--stroke);
+}
 
 
+.item img:hover ~ .item-info 
+{
+    display: block;
+}
 
+.start .item-info,
+.early .item-info
+{
+    left: 100%;
+    bottom: 0;
+}
 
+.mid .item-info,
+.late .item-info 
+{
+    right: 100%;
+    bottom: 0;
+}
 
+.cost span 
+{
+    margin-left: 5px;
+}
+
+.item-info section h4 
+{
+    color: var(--formText);
+}
+
+.item-info p,
+.item-info section 
+{
+    margin: 5px 0px;
+}
+
+.item-info section p span
+{
+    color: springgreen;
+}
+
+.item-info p span 
+{
+    color: springgreen;
+    font-style: italic;
+}
+
+.recommand-items > div > div 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
 
 /* Media query */
 @media screen and (min-width : 450px) {
@@ -493,6 +584,13 @@ p.lore
     .hero-list {
         grid-template-columns: 200px 200px 200px 200px;
         justify-content: space-between;
+    }
+
+    .recommand-items 
+    {
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
     }
 
 }

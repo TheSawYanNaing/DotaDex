@@ -6,6 +6,7 @@ import RecommandItems from "./RecommandItems";
 
 export default function HeroRoutes()
 {
+
     return(
         <Routes>
             <Route index element={<HeroList />} />
