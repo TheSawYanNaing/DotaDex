@@ -9,6 +9,11 @@ export default function Item({name})
 
     const item = items[name]
 
+    if (!item)
+    {
+        return null
+    }
+
     return(
         <div className="item">
             <img src={`https://cdn.steamstatic.com${item.img}`} alt={item.dname}/>

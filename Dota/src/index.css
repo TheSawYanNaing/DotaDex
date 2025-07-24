@@ -675,6 +675,22 @@ p.lore
   display: none;             /* Chrome, Safari */
 }
 
+.item-list 
+{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px 10px;
+}
+
+.item-list .item-info 
+{
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
 
 
 /* Media query */

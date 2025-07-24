@@ -1,7 +1,8 @@
-import items from "./../helpers/items.json"
-import ItemCard from "./ItemCard";
+import itemIds from "./../helpers/item_ids.json"
+import Item from "./Item"
 
 import { useSearchParams } from "react-router-dom";
+import { useItemContext } from "./ItemContextProvider";
 
 export default function ItemList()
 {
@@ -20,28 +21,36 @@ export default function ItemList()
 
     // Getting search parameter from URL
     const q = searchParams.get("q");
-   
+    
+    const items = useItemContext()
     // Getting the keys from items
-    const itemList = Object.keys(items);
+    const itemList = Object.values(itemIds);
+
+    // Removing recipe from item list
+    const removeRecipe = itemList.filter(function(item)
+    {
+        return !item.startsWith("recipe")
+    })
 
     // Filtering items based on search param
-    const filterItemList = itemList.filter(function(item)
+    const filterItemList = removeRecipe.filter(function(item)
     {
-        if (items[item].dname)
+
+        if (items[item] && items[item].dname)
         {
-            return items[item].dname.toLowerCase().includes(q.toLowerCase())
+            return items[item].dname.toLowerCase().includes(decodeURIComponent(q.trim().toLocaleLowerCase()))
         }
+
+        
     })
 
     // Getting list of item components
     const itemComponents = filterItemList.map(function(item)
     {
         return (
-            <ItemCard
-                key = {items[item].id}
-                dname = {items[item].dname}
-                img = {items[item].img}
-                cost = {items[item].cost}
+            <Item 
+                key = {item}
+                name = {item}
             />
         )
     })    
@@ -57,7 +66,7 @@ export default function ItemList()
                 name = "q"
                 onChange = {(e) => handleChange(e)}
             />
-            <div className="hero-list">
+            <div className="item-list">
                 {itemComponents}
             </div>
         </div>
