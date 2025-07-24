@@ -25,7 +25,7 @@ export default function HeroLayout()
                         } end to={`/hero/${id}/items`}>Items</NavLink>
                     </li>
                     <li>
-                        <NavLink to={`/hero/${id}/matches`}>Matches</NavLink>
+                        <NavLink to={`/hero/${id}/matchup`}>Match Up</NavLink>
                     </li>
                 </ul>
             </nav>

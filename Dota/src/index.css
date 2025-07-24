@@ -561,6 +561,57 @@ p.lore
     gap: 5px;
 }
 
+.matchup-container 
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    margin: 30px auto;
+    width: 90%;
+}
+
+.matchup-banner 
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.matchup-container h4,
+.matchup-container p 
+{
+    text-align: left;
+}
+
+.matchup-container .matchup-banner,
+.matchup-container p 
+{
+    margin-bottom: 5px;
+    border-bottom: 2px solid var(--form);
+}
+.matchup-banner img 
+{
+    width: 40px;
+}
+
+.matchup-container h4 
+{
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.hero-name, 
+.winrate 
+{
+    color: springgreen;
+    font-size: 14px;
+}
+
+.hero-name 
+{
+    cursor: pointer;
+}
+
 /* Media query */
 @media screen and (min-width : 450px) {
     .hero-list 

@@ -1,14 +1,16 @@
-import heroes from "./../helpers/heroes.json"
+
 import agility from "./../assets/agility.webp"
 import intelligence from "./../assets/intel.webp"
 import strength from "./../assets/strengthh.webp"
 import universal from "./../assets/universal.webp"
 
+import { useHeroContext } from "./HeroContextProvider"
 import { useNavigate } from "react-router-dom"
 
 export default function HeroCard({id,name, localized_name, primary_attr, attack_type, roles})
 {   
     const navigate = useNavigate();
+    const heroes = useHeroContext()
 
     let imgUrl;
     if (primary_attr === "agi")

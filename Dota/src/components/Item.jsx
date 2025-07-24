@@ -9,8 +9,6 @@ export default function Item({name})
 
     const item = items[name]
 
-    console.log(item.components)
-
     return(
         <div className="item">
             <img src={`https://cdn.steamstatic.com${item.img}`} alt={item.dname}/>
