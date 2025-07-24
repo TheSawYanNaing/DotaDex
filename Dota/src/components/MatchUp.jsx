@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useHeroContext } from "./HeroContextProvider";
 import { Fragment } from "react";
@@ -9,6 +9,9 @@ export default function MatchUp()
     {
         navigate(`/hero/${id}`)
     }
+
+    const matchUpRef = useRef()
+
     const {id} = useParams()
 
     const [matchup, setMatchup] = useState([])
@@ -17,9 +20,8 @@ export default function MatchUp()
 
     const navigate = useNavigate()
 
-    useState(function()
+    useEffect(function()
     {
-        // Fetching data for hero of id
         async function getMatchup()
         {
             try 
@@ -41,7 +43,17 @@ export default function MatchUp()
         }
 
         getMatchup()
+
     }, [])
+
+    useEffect(function()
+    {
+        if (matchUpRef.current)
+        {
+            matchUpRef.current.scrollIntoView({behavior : "smooth"})
+        }
+    }, [matchup])
+
 
     if (matchup.length === 0)
     {
@@ -66,7 +78,7 @@ export default function MatchUp()
     })
 
     return(
-        <div className="matchup-container">
+        <div className="matchup-container" ref={matchUpRef}>
             <h4>Hero</h4>
             <h4>Total Games</h4>
             <h4>Wins</h4>

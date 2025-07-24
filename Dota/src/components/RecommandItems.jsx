@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 import itemIds from "./../helpers/item_ids.json"
@@ -18,6 +18,8 @@ export default function RecommandItems() {
         )
     }
     const {id} = useParams()
+
+    const itemRef = useRef()
     
     // Setting staet for recommand items
     const [recommandItems, setRecommandItems] = useState({})
@@ -48,6 +50,14 @@ export default function RecommandItems() {
         getRecommandItems()
     }, [])
 
+    useEffect(function()
+    {
+        if (itemRef.current)
+        {
+            itemRef.current.scrollIntoView({behavior: "smooth"})
+        }
+    }, [recommandItems])
+
     if (Object.keys(recommandItems).length === 0)
     {
         return null
@@ -71,7 +81,7 @@ export default function RecommandItems() {
     const lateItemsComponents = lateItems.map(getItem)
 
     return(
-        <div className="recommand-items">
+        <div className="recommand-items" ref={itemRef}>
             <div className="start">
                 <h3>Start Items</h3>
                 <div className="start-container">
