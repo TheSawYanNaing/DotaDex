@@ -489,6 +489,7 @@ p.lore
 .item img 
 {
     width: 40px;
+    cursor: pointer;
 }
 
 .item 
@@ -499,36 +500,16 @@ p.lore
 
 .item .item-info 
 {
-    position: absolute;
     background-color: var(--form);
     padding: 10px;
     font-size: small;
-    display: none;
-    z-index: 2;
+    z-index: 5;
     width: 300px;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 1px var(--stroke);
+    pointer-events: none;
 }
 
-
-.item img:hover ~ .item-info 
-{
-    display: block;
-}
-
-.start .item-info,
-.early .item-info
-{
-    left: 100%;
-    bottom: 0;
-}
-
-.mid .item-info,
-.late .item-info 
-{
-    right: 100%;
-    bottom: 0;
-}
 
 .cost span 
 {
@@ -584,6 +565,11 @@ p.lore
 .matchup-container p 
 {
     text-align: left;
+}
+
+img.open 
+{
+    box-shadow: 0px 0px 4px 1px var(--stroke);
 }
 
 .matchup-container .matchup-banner,
@@ -682,14 +668,6 @@ p.lore
     display: flex;
     flex-wrap: wrap;
     gap: 0px 10px;
-}
-
-.item-list .item-info 
-{
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 4;
 }
 
 
