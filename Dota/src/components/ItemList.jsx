@@ -3,6 +3,7 @@ import Item from "./Item"
 
 import { useSearchParams } from "react-router-dom";
 import { useItemContext } from "./ItemContextProvider";
+import { useState } from "react";
 
 export default function ItemList()
 {
@@ -17,15 +18,26 @@ export default function ItemList()
         }, {replace: true} )
     }
 
+    // Getting the keys from items
+    const itemList = Object.values(itemIds);
+
+    const [opens, setOpens] = useState(function()
+    {
+        const arr =  itemList.map(function(item)
+        {
+            return {[item] : false}
+        })
+
+        return Object.assign({}, ...arr)
+    })
+
     const [searchParams, setSearchParams] = useSearchParams({q : ""});
 
     // Getting search parameter from URL
     const q = searchParams.get("q");
     
     const items = useItemContext()
-    // Getting the keys from items
-    const itemList = Object.values(itemIds);
-
+    
     // Removing recipe from item list
     const removeRecipe = itemList.filter(function(item)
     {
@@ -50,6 +62,8 @@ export default function ItemList()
         return (
             <Item 
                 key = {item}
+                opens = {opens}
+                setOpens = {setOpens}
                 name = {item}
             />
         )

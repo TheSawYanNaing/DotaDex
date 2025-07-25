@@ -2,15 +2,14 @@ import { PiCoinsLight } from "react-icons/pi";
 import { useItemContext } from "./ItemContextProvider";
 import { useFloating, offset, flip, shift, autoUpdate } from "@floating-ui/react";
 import {nanoid} from "nanoid"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-export default function Item({name})
+export default function Item({name, opens, setOpens})
 {
 
-    const [open, setOpen] = useState(false)
     const {refs, floatingStyles} = useFloating({
-        open,
-        onOpenChange : setOpen,
+        opens,
+        onOpenChange : setOpens,
         middleware: [offset(8), flip(), shift()],
         placement: "top",
         whileElementsMounted : autoUpdate
@@ -24,19 +23,24 @@ export default function Item({name})
     // update tooltip on scroll to maintain position
     useEffect(function()
     {   
-        function closeToolTip()
+        // Close all
+        function close()
         {
-            setOpen(false)
+            setOpens(function(prev)
+            {
+                const updated = {}
+
+                for (const key in prev)
+                {
+                    updated[key] = false
+                }
+
+                return updated
+            })
         }
+        window.addEventListener("click", close)
 
-        if (!open)
-        {
-            return 
-        }
-
-        window.addEventListener("scroll",closeToolTip)
-
-        return window.removeEventListener("scroll", closeToolTip)
+        return () => window.removeEventListener("click", close)
     })
 
     if (!item)
@@ -50,10 +54,24 @@ export default function Item({name})
                 src={`https://cdn.steamstatic.com${item.img}`} 
                 alt={item.dname}
                 ref = {refs.setReference}
-                onClick={() => setOpen(!open)}
+                onClick={function(e)
+                {
+                    e.stopPropagation()
+                    setOpens(function(prev)
+                    {
+                        const updated = {}
+                        for (const key in prev)
+                        {
+                            updated[key] = key === name
+                        }
+
+                        return updated
+                    })
+                }
+                }
                 className={open? "open" : ""}
             />
-            {open && 
+            {opens[name] && 
             <div className="item-info" ref={refs.setFloating} style={floatingStyles}>
                 <h3>{item.dname}</h3>
                 <p className="cost">

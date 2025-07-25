@@ -13,6 +13,8 @@ export default function RecommandItems() {
         return(
             <Item 
                 key = {item}
+                opens = {opens}
+                setOpens = {setOpens}
                 name = {itemIds[item]}
             />
         )
@@ -23,6 +25,8 @@ export default function RecommandItems() {
     
     // Setting staet for recommand items
     const [recommandItems, setRecommandItems] = useState({})
+
+    const [opens, setOpens] = useState([])
 
 
     useEffect(function()
@@ -38,6 +42,23 @@ export default function RecommandItems() {
                     const data = await response.json()
 
                     setRecommandItems(data)
+
+                    const startArr = Object.keys(data.start_game_items).map(item => itemIds[item])
+                    const earlyArr = Object.keys(data.early_game_items).map(item => itemIds[item])
+                    const midArr = Object.keys(data.mid_game_items).map(item => itemIds[item])
+                    const lateArr = Object.keys(data.late_game_items).map(item => itemIds[item])
+
+                    const itemArr = [...startArr, ...earlyArr, ...midArr, ...lateArr]
+
+                    setOpens(function()
+                    {
+                        const arr = itemArr.map(function(item)
+                        {
+                            return {[item] : false}
+                        })
+
+                        return Object.assign({}, ...arr)
+                    })
                 }
             }
 
